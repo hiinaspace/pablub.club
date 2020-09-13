@@ -1,0 +1,19 @@
+
+body {
+  background: url('bg.png') bottom right no-repeat fixed black; 
+  color: #ccc;
+  font-family: sans-serif;
+}
+
+a {
+  color: #aaf;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+table {
+  background: rgba(0,0,0,0.7);
+}

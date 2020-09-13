@@ -1,0 +1,11 @@
+[Unit]
+Description=pablub.club serber list
+
+[Service]
+WorkingDirectory=/path/to//pablub
+ExecStart=/path/to/pablub/update.sh
+User=someuser
+Group=somegroup
+
+[Install]
+WantedBy=multi-user.target
