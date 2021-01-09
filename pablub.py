@@ -8,9 +8,14 @@ from geoip2.errors import AddressNotFoundError
 geodb = geoip2.database.Reader('GeoLite2-Country_20200616/GeoLite2-Country.mmdb')
 
 pablub_headers = {
-    "Version": "0.70.4",
+    "Version": "0.80.75",
+    "User-Agent": "pablub.club",
+    "Content-Type": "text/plain;charset=UTF-8",
+
 }
-r = requests.get("http://ms.pavlov-vr.com/v1/servers", headers=pablub_headers)
+# requires posting an empty object
+# and dave's SSL certs are broken somehow, too lazy to debug
+r = requests.post("https://pavlov-ms.vankrupt.com/servers/v1/list", headers=pablub_headers, json={}, verify='./vankrupt-com-chain.pem')
 
 workshop_id_re = re.compile(r"^UGC(\d+)$")
 
@@ -64,9 +69,9 @@ with tag('html'):
                                 text(serb['mapLabel'])
                         with tag('td'):
                             with tag('a', href="https://stats.pablub.club/d/G-CkMD4Wk/pablub?orgId=1&var-hash=%s" % (serb['hash'])):
-                                doc.stag('img', src="/graph/%s" % (serb['hash']))
-                            doc.asis(" ")
-                            text(serb['slots'])
+                                #doc.stag('img', src="/graph/%s" % (serb['hash']))
+                                text(serb['slots'])
+                            #doc.asis(" ")
                         line('td', serb['maxSlots'])
                         line('td', ip_country(serb['ip']) or "Unknown")
 
