@@ -8,7 +8,7 @@ from geoip2.errors import AddressNotFoundError
 geodb = geoip2.database.Reader('GeoLite2-Country_20200616/GeoLite2-Country.mmdb')
 
 pablub_headers = {
-    "Version": "0.80.121",
+    "Version": "0.90.3",
     "User-Agent": "pablub.club",
     "Content-Type": "text/plain;charset=UTF-8",
 
